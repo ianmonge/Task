@@ -25,6 +25,15 @@ class Bootstrap
 	}
 
 	/**
+	 * Initialize the envitonment.
+	 */
+	protected function _initEnvironment()
+	{
+		error_reporting( E_ALL | E_STRICT );
+		ini_set( 'display_errors', true );
+	}
+
+	/**
 	 * Instance the Zend_Loader_Autoloader class.
 	 */
 	protected function _initZendAutoloader()
