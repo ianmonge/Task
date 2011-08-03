@@ -1,6 +1,7 @@
 <?php 
 
-//TODO print formatted report
+$bootstrap = new Bootstrap();
+$bootstrap->init();
 
 foreach ($merchant->getTransactions() as $transaction) {
     
