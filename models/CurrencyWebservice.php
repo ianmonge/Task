@@ -1,10 +1,12 @@
 <?php
 
+require_once 'CurrencyWebserviceInterface.php';
+
 /**
  * Dummy web service returning random exchange rates
  *
  */
-class CurrencyWebservice
+class CurrencyWebservice implements CurrencyWebserviceInterface
 {
     protected $exchanges = array();
 
@@ -43,6 +45,6 @@ class CurrencyWebservice
      */
     protected function getRandomNumber()
     {
-        return rand( 1, 200 ) / 100;
+        return (float) rand( 1, 200 ) / 100;
     }
 }
