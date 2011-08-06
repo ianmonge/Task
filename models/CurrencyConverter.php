@@ -36,7 +36,7 @@ class CurrencyConverter implements CurrencyConverterInterface
      * @param type $defaultCurrency
      * @param CurrencyWebserviceInterface $currencyWebservice
      */
-    public function __contruct( $defaultCurrency = self::CURRENCY_USD, CurrencyWebserviceInterface $currencyWebservice = null )
+    public function __construct( $defaultCurrency = self::CURRENCY_USD, CurrencyWebserviceInterface $currencyWebservice = null )
     {
         if ( NULL === $currencyWebservice )
         {
@@ -44,6 +44,7 @@ class CurrencyConverter implements CurrencyConverterInterface
         }
         
         $this->currencyWebservice = $currencyWebservice;
+        $this->defaultCurrency = $defaultCurrency;
     }
 
     /**
