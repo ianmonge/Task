@@ -1,11 +1,31 @@
 <?php
 
+require_once 'TransactionTableInterface.php';
+
 /**
- * Source of transactions, can read data.csv directly for simplicty sake, 
- * should behave like a database (read only)
+ * Class TransactionTable. Read the data from the CSV file.
  *
  */
-class TransactionTable
+class TransactionTable implements TransactionTableInterface
 {
-    
+    /**
+     * Return the data from $filename.
+     *
+     * @param string $filename
+     * @return array
+     */
+    public function getData( $filename )
+    {
+        $handle = fopen( $filename, "r" );
+        if ( FALSE !== $handle )
+        {
+            $data = fgetcsv($handle, 1000, ",");
+            while ( FALSE !== $data ) {
+                for ($c=0; $c < $num; $c++) {
+                    echo $data[$c] . "<br />\n";
+                }
+            }
+            fclose( $handle );
+        }
+    }
 }

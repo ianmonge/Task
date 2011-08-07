@@ -4,7 +4,7 @@ require_once 'CurrencyConverterInterface.php';
 require_once 'CurrencyWebservice.php';
 
 /**
- * Uses CurrencyWebservice
+ * Class CurrencyConverter. Converts the amount using the CurrencyWebservice.
  *
  */
 class CurrencyConverter implements CurrencyConverterInterface
@@ -36,7 +36,7 @@ class CurrencyConverter implements CurrencyConverterInterface
      * @param type $defaultCurrency
      * @param CurrencyWebserviceInterface $currencyWebservice
      */
-    public function __construct( $defaultCurrency = self::CURRENCY_USD, CurrencyWebserviceInterface $currencyWebservice = null )
+    public function __construct( $defaultCurrency = self::CURRENCY_GBP, CurrencyWebserviceInterface $currencyWebservice = null )
     {
         if ( NULL === $currencyWebservice )
         {

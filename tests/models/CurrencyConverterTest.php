@@ -39,7 +39,7 @@ class CurrencyConverterTest extends PHPUnit_Framework_TestCase
      */
     public function testConvertSameCurrency()
     {
-        $currencyFrom = CurrencyConverter::CURRENCY_USD;
+        $currencyFrom = CurrencyConverter::CURRENCY_GBP;
         $amount = 55;
         
         $result = $this->obj->convert( $amount, $currencyFrom );
