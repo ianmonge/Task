@@ -60,8 +60,31 @@ class CurrencyWebserviceTest extends PHPUnit_Framework_TestCase
         $result1 = $this->obj->getExchangeRate( $currencyFrom, $currencyTo );
         $result2 = $this->obj->getExchangeRate( $currencyTo, $currencyFrom );
         
-        $this->assertNotNull( $result2, 'The method "getExchangeRate" cannot return NULL.' );
-        $this->assertEquals( 1, ( $result1 * $result2 ), 'The method "getExchangeRate" hasn\'t the same exchange.' );
+        $this->assertEquals( 1, intval( $result1 * $result2 ), 'The method "getExchangeRate" hasn\'t the same exchange.' );
+    }
+
+    /**
+     * Test the method "setExchanges".
+     */
+    public function testSetExchanges()
+    {
+        $exchanges = array(
+            'A' => array(
+                'B' => 2
+            ),
+            'B' => array(
+                'A' => 0.5
+            ),
+        );
+        $this->obj->setExchanges( $exchanges );
+
+        $currencyFrom   = 'A';
+        $currencyTo     = 'B';
+        $result1 = $this->obj->getExchangeRate( $currencyFrom, $currencyTo );
+        $result2 = $this->obj->getExchangeRate( $currencyTo, $currencyFrom );
+        
+        $this->assertEquals( $result1, $exchanges[ $currencyFrom ][ $currencyTo ] , 'The method "setExchanges" doen\'t work correctly.' );
+        $this->assertEquals( $result2, $exchanges[ $currencyTo ][ $currencyFrom ] , 'The method "setExchanges" doen\'t work correctly.' );
     }
 
 }

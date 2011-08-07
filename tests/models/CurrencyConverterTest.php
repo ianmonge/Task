@@ -60,7 +60,7 @@ class CurrencyConverterTest extends PHPUnit_Framework_TestCase
         $result = $this->obj->convert( $amount, $currencyFrom, $currencyTo );
         $result = $this->obj->convert( $result, $currencyTo, $currencyFrom );
         
-        $this->assertEquals( 55, $result, '' );
+        $this->assertEquals( $amount, round( $result ), '' );
         
     }
 }
