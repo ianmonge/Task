@@ -39,16 +39,6 @@ class CurrencyWebservice implements CurrencyWebserviceInterface
     }
 
     /**
-     * Set the exchanges.
-     * 
-     * @param array $exchanges
-     */
-    public function setExchanges( array $exchanges )
-    {
-        $this->exchanges = $exchanges;
-    }
-
-    /**
      * Return a random number.
      *
      * @return float
