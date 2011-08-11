@@ -42,7 +42,7 @@ class CurrencyConverterTest extends PHPUnit_Framework_TestCase
         $currencyFrom = CurrencyConverter::CURRENCY_GBP;
         $amount = 55;
         
-        $result = $this->obj->convert( $amount, $currencyFrom );
+        $result = $this->obj->convert( $amount, $currencyFrom, $currencyFrom );
         
         $this->assertEquals( 55, $result, '' );
         
@@ -61,6 +61,7 @@ class CurrencyConverterTest extends PHPUnit_Framework_TestCase
         $result = $this->obj->convert( $result, $currencyTo, $currencyFrom );
         
         $this->assertEquals( $amount, round( $result ), '' );
+        $this->assertLessThan( 1e-6, abs( $amount - $result ), '' );
         
     }
 }

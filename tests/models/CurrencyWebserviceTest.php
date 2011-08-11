@@ -60,7 +60,7 @@ class CurrencyWebserviceTest extends PHPUnit_Framework_TestCase
         $result1 = $this->obj->getExchangeRate( $currencyFrom, $currencyTo );
         $result2 = $this->obj->getExchangeRate( $currencyTo, $currencyFrom );
         
-        $this->assertLessThan( 1e6, abs( 1 - ( $result1 * $result2 ) ), 'The method "getExchangeRate" hasn\'t the same exchange.' );
+        $this->assertLessThan( 1e-6, abs( 1 - ( $result1 * $result2 ) ), 'The method "getExchangeRate" hasn\'t the same exchange.' );
     }
 
 }
