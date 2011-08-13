@@ -34,6 +34,6 @@ class Request
      */
     protected function getArguments()
     {
-        return $_SERVER[ 'argc' ];
+        return $_SERVER[ 'argv' ];
     }
 }

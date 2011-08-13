@@ -2,6 +2,8 @@
 
 require_once 'Bootstrap.php';
 require_once 'Request.php';
+require_once 'View.php';
+require_once PATH_BASE . '/models/Merchant.php';
 
 $bootstrap = new Bootstrap();
 $bootstrap->init();
@@ -11,15 +13,16 @@ $view       = new View();
 
 try
 {
-    $merechantId = $request->getMerchantId();
+    $merchantId = $request->getMerchantId();
 }
  catch ( Exception $e )
  {
-     $view->showError( $e->getMessage );
+     $view->showError( $e->getMessage() );
      exit( 1 );
  }
 
-$merchant = new Metchant();
+$filename = '../data.csv';
+$merchant = new Merchant( $filename );
 $transactions = $merchant->getTransactions( $merchantId );
 $view->showTransactions( $transactions );
 exit(0);

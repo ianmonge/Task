@@ -27,7 +27,7 @@ class TransactionTableTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDataUnexistingFile()
     {
-        $filename = PATH_BASE . '/tests/fail.csv';
+        $filename = PATH_BASE . '/tests/models/fail.csv';
         
         $this->obj->getData( $filename );
     }
@@ -37,7 +37,7 @@ class TransactionTableTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDataValidFile()
     {
-        $filename = PATH_BASE . '/tests/data.csv';
+        $filename = PATH_BASE . '/tests/models/data.csv';
         
         $result = $this->obj->getData( $filename );
 
