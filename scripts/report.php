@@ -6,21 +6,20 @@ require_once 'Request.php';
 $bootstrap = new Bootstrap();
 $bootstrap->init();
 
-$request = new Request();
+$request    = new Request();
+$view       = new View();
+
 try
 {
     $merechantId = $request->getMerchantId();
 }
  catch ( Exception $e )
  {
-     echo $e->getMessage() . PHP_EOL;
-     echo <<<HEREDOC
-   php report.php <integer>
-
-HEREDOC;
+     $view->showError( $e->getMessage );
      exit( 1 );
  }
 
-//foreach ($merchant->getTransactions() as $transaction) {
-//    
-//}
+$merchant = new Metchant();
+$transactions = $merchant->getTransactions( $merchantId );
+$view->showTransactions( $transactions );
+exit(0);
