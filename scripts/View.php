@@ -1,26 +1,8 @@
 <?php
 
-
-
 /**
-
  * Class View. Process the information to return.
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class View
 {
     /**
@@ -31,48 +13,20 @@ class View
      */
     public function showError( $error )
     {
-
-
-
-
-
         echo $error . PHP_EOL;
         echo <<<HEREDOC
     php report.php <integer>
 
-
-
-
-
-
-
-
-
 HEREDOC;
     }
-
     
     /**
-
      * Show the transactions to the output.
      *
      * @return array $transactions
      */
-
     public function showTransactions( array $transactions )
     {
-
-
-
-
-
-
-
-
-
-
-
-
         if ( empty( $transactions ) )
         {
             echo 'There isn\'t any transactions for that merchant ID';
@@ -80,18 +34,6 @@ HEREDOC;
         }
         
         foreach ( $transactions as $transaction )
-
-
-
-
-
-
-
-
-
-
-
-
         {
             foreach ( $transaction as $key => $value )
             {
@@ -99,7 +41,6 @@ HEREDOC;
             }
             echo '----------------------' . PHP_EOL;
         }
-        
     }
 
 }
