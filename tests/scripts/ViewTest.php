@@ -46,17 +46,14 @@ class ViewTest extends PHPUnit_Extensions_OutputTestCase
      */
     public function testShowTransactions()
     {
-        $expected = <<<HEREDOC
-merchant - 1\r
-date - 01/05/2010\r
-value - £50.00\r
-----------------------\r
-merchant - 2\r
-date - 20/05/2010\r
-value - £66.10\r
-----------------------\r
-
-HEREDOC;
+        $expected = 'merchant - 1' . PHP_EOL .
+                    'date - 01/05/2010' . PHP_EOL .
+                    'value - £50.00' . PHP_EOL .
+                    '----------------------' . PHP_EOL .
+                    'merchant - 2' . PHP_EOL .
+                    'date - 20/05/2010' . PHP_EOL .
+                    'value - £66.10' . PHP_EOL .
+                    '----------------------' . PHP_EOL;
         $this->expectOutputString( $expected );
 
         $transactions = array(
