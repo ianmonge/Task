@@ -32,17 +32,4 @@ class Bootstrap
 		ini_set( 'display_errors', true );
 	}
 
-	/**
-	 * Instance the Zend_Loader_Autoloader class.
-	 */
-	protected function _initZendAutoloader()
-	{
-		set_include_path( implode( PATH_SEPARATOR, array(
-			PATH_LIBRARY,
-			get_include_path(),
-		) ) );
-
-		require_once 'Zend/Loader/Autoloader.php';
-		Zend_Loader_Autoloader::getInstance();
-    }
 }
