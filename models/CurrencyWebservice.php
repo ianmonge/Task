@@ -8,6 +8,11 @@ require_once 'CurrencyWebserviceInterface.php';
  */
 class CurrencyWebservice implements CurrencyWebserviceInterface
 {
+    /**
+     * Exchanges between currencies.
+     *
+     * @var array
+     */
     protected $exchanges = array();
 
     /**
