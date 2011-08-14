@@ -1,7 +1,6 @@
 <?php
 
 define( 'PATH_BASE', realpath( dirname( dirname( __FILE__ ) ) ) );
-define( 'PATH_LIBRARY', PATH_BASE. DIRECTORY_SEPARATOR . 'library' );
 
 /**
  * Initialize the application.
@@ -45,5 +44,5 @@ class Bootstrap
 
 		require_once 'Zend/Loader/Autoloader.php';
 		Zend_Loader_Autoloader::getInstance();
-	}
+    }
 }
