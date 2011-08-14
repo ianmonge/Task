@@ -1,35 +1,19 @@
 <?php
 
-define( 'PATH_BASE', realpath( dirname( dirname( __FILE__ ) ) ) );
+/**
+ * Configuration of the environment.
+ */
+error_reporting( E_ALL | E_STRICT );
+ini_set( 'display_errors', true );
 
 /**
- * Initialize the application.
+ * Defines of the constants.
  */
-class Bootstrap
-{
-	/**
-	 * Call of the methods that start with "_init", for initialize the application.
-	 */
-	public function init()
-	{
-		$methods = get_class_methods( get_class( $this ) );
-		$methods = array_filter(
-			$methods,
-			function ( $element ) { return ( 0 === strpos( $element, '_init' ) ); } ); 
-		
-		foreach ( $methods as $method )
-		{
-			$this->$method();
-		}
-	}
+define( 'PATH_BASE', realpath( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR );
 
-	/**
-	 * Initialize the envitonment.
-	 */
-	protected function _initEnvironment()
-	{
-		error_reporting( E_ALL | E_STRICT );
-		ini_set( 'display_errors', true );
-	}
-
-}
+/**
+ * Includes required files.
+ */
+require_once 'Request.php';
+require_once 'View.php';
+require_once PATH_BASE . 'models/Merchant.php';
